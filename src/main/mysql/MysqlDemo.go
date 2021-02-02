@@ -40,6 +40,7 @@ func main() {
 	DB.SetConnMaxLifetime(100 * time.Second) //最大连接周期，超时的连接就close
 	DB.SetMaxOpenConns(100)                  //设置最大连接数
 	CreateTable(DB)
+	fmt.Println("建表完成")
 	InsertData(DB)
 	QueryOne(DB)
 	QueryMulti(DB)
@@ -65,11 +66,12 @@ func CreateTable(DB *sql.DB) {
 
 //插入数据
 func InsertData(DB *sql.DB) {
-	result, err := DB.Exec("insert INTO users(username,password) values(?,?)", "test", "123456")
+	result, err := DB.Exec("insert INTO users(id,username,password,status,createTime) values(?,?,?,?,?)", "123456", "xiaoming", "test", "20", "123456")
 	if err != nil {
 		fmt.Printf("Insert data failed,err:%v", err)
 		return
 	}
+	fmt.Println("插入一条数据")
 	lastInsertID, err := result.LastInsertId() //获取插入数据的自增ID
 	if err != nil {
 		fmt.Printf("Get insert id failed,err:%v", err)
