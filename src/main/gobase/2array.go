@@ -1,10 +1,10 @@
-package main
+package gobase
 
 import (
 	"fmt"
 )
 
-func main() {
+func Array2Print() {
 	var f [2][3]int = [...][3]int{{1, 2, 3}, {7, 8, 9}}
 
 	for k1, v1 := range f {
