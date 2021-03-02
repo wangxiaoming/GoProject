@@ -7,7 +7,7 @@ import (
 )
 
 type Persons struct {
-	UserId   int    `db:"user_id"`
+	UserId   int    `gorm:"primary_key"`
 	UserName string `db:"username"`
 	Sex      string `db:"sex"`
 	Email    string `db:"email"`
