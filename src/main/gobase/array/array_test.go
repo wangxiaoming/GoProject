@@ -1,6 +1,9 @@
-package main
+package array
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestArrayInit(t *testing.T) {
 	var arr [3]int                 // 声明并初始化为默认值
@@ -37,4 +40,23 @@ func TestArraySection(t *testing.T) {
 	arr3_sec := arr3[1:3]
 	t.Log(arr3_sec)
 
+}
+
+func Test2WArray(t *testing.T) {
+	var array1 [][]string
+	var tmp []string
+	var tmp1 []string
+
+	tmp = append(tmp, "001")
+	tmp = append(tmp, "002")
+	tmp = append(tmp, "003")
+
+	tmp1 = append(tmp1, "11")
+	tmp1 = append(tmp1, "22")
+
+	array1 = append(array1, tmp)
+	array1 = append(array1, tmp1)
+	fmt.Println(array1)
+	fmt.Println(array1[0])
+	fmt.Println(array1[0][1])
 }
